@@ -10,3 +10,4 @@ function addListElement() {
 }
 
 button.addEventListener('click', addListElement)
+button.addEventListener('enter', addListElement)

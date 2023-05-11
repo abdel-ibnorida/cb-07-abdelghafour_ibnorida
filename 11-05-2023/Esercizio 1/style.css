@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    height: 50px;
+    width: 150px;
+    padding: 4px 8px;
+    background-color: #142d4c;
+    border-radius: 12px;
+    box-shadow: 0 0 3px 1px #38517052;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
