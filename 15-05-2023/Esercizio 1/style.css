@@ -1,0 +1,78 @@
+.navbar {
+    background-color: lightgray;
+    height: 80px;
+    display: flex;
+    font-size: x-large;
+}
+
+.navbar__logo {
+    width: 5%;
+}
+
+.navbar__logo img {
+    height: 80px;
+    width: 80%;
+}
+
+.navbar__links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+
+}
+
+.navbar__search {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar__user {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    text-shadow: 0 0 3px rgb(0, 0, 0, 0.5);
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 500px;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+
+.hero__content {
+    margin: 0 80px;
+    position: relative;
+    top: 0;
+    width: 50%;
+    color: black;
+    text-shadow: 0 0 3px rgb(0, 0, 0, 0.5);
+}
+
+.hero button {
+    border-radius: 15%;
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: medium;
+}
