@@ -85,11 +85,11 @@ const createModal = (productDataInput, divRootInput) => {
   buttonModal.addEventListener('click', () => {
     cartItems.push(divModal.id);
     console.log(cartItems.length);
-    if (cartItems.length > 0){
+    /*if (cartItems.length > 0){
       const cartElementsNumber= qS('.cart_element_number');
       cartElementsNumber.classList.add('cart_element_number_active');
       cartElementsNumber.textContent = cartItems.length;
-    }
+    }*/
    
   })
   divModalOverlay.addEventListener('click', () => {
@@ -183,7 +183,7 @@ cartButton.addEventListener('click', (e) => {
     let totalPriceNumber = 0;
 
     for (let index = 0; index < cartItems.length; index++) {
-      totalPriceNumber = totalPriceNumber + parseInt(list[cartItems[index]].price);
+      totalPriceNumber = totalPriceNumber + parseInt(list[cartItems[index]-1].price);
     }
     totalPrice.textContent = "Total: " + totalPriceNumber;
     divCart.append(totalPrice);
