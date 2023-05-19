@@ -5,6 +5,8 @@ const qS = (el) => document.querySelector(el);
 const qSA = (els) => document.querySelectorAll(els);
 
 const divRoot = cE("div");
+const navbar = qS(".navbar");
+const hero = qS(".hero");
 const formSerch = qS(".navbar__search");
 divRoot.className = "div_root";
 const list = [];
@@ -20,6 +22,9 @@ const navbarUser = qS('.navbar__user');
 const modalLogin = cE("div");
 
 divRoot.className = "divroot_No_display";
+divSeparate.style.display = "none";
+navbar.style.display = "none";
+hero.style.display = "none";
 modalLogin.className = "modal_login";
 const modalLoginForm = cE('form');
 modalLoginForm.className = "modal_login_form"
@@ -27,7 +32,7 @@ const modalLoginInputUser = cE('input');
 modalLoginInputUser.type = "text";
 modalLoginInputUser.placeholder = "username";
 const modalLoginInputPasswor = cE('input');
-modalLoginInputPasswor.type = "text";
+modalLoginInputPasswor.type = "password";
 modalLoginInputPasswor.placeholder = "password";
 const loginSubmit = cE("input");
 loginSubmit.className = "login_submit"
@@ -106,12 +111,13 @@ const createModal = (productDataInput, divRootInput) => {
     cartItems.push(divModal.id);
     alert("prodotto aggiunto");
     console.log(cartItems.length);
-    if (cartItems.length > 0){
-      const cartElementsNumber= qS('.cart_number_items');
+    if (cartItems.length > 0) {
+      const cartElementsNumber = qS('.cart_number_items');
       cartElementsNumber.classList.add('cart_element_number_active');
       cartElementsNumber.textContent = cartItems.length;
     }
-
+    divRootInput.removeChild(divModal);
+    divRootInput.removeChild(divModalOverlay);
   })
   divModalOverlay.addEventListener('click', () => {
     divRootInput.removeChild(divModal);
@@ -193,12 +199,11 @@ cartButton.addEventListener('click', (e) => {
   buttonCloseCart.className = "cart_close_button";
   buttonCloseCart.textContent = "X";
   divCart.append(buttonCloseCart);
-  console.log(cartItems);
 
-  cartItems.forEach(element => {
-    divCart.append(createCardCart(list, (element - 1)));
-  });
   if (cartItems.length > 0) {
+    cartItems.forEach(element => {
+      divCart.append(createCardCart(list, (element - 1)));
+    });
     const totalPrice = cE('h3');
     totalPrice.className = "total_price";
     let totalPriceNumber = 0;
@@ -209,7 +214,17 @@ cartButton.addEventListener('click', (e) => {
     totalPrice.textContent = "Total: " + totalPriceNumber;
     divCart.append(totalPrice);
   }
+  else
+  {
+    const emptyCartText = cE('h3');
+    emptyCartText.textContent = "Il carello è vuoto";
+    divCart.append(emptyCartText);
 
+  }
+
+  if (cartItems.length > 0) {
+    
+  }
   divRoot.append(divCart);
 
   buttonCloseCart.addEventListener('click', () => {
@@ -239,7 +254,8 @@ modalLoginForm.addEventListener('submit', (e) => {
   else {
     divRoot.className = "div_root";
     modalLogin.className = "modal_login_no_display";
+    divSeparate.style.display = "flex";
+    navbar.style.display = "flex";
+    hero.style.display = "flex";
   }
-
-
 })
