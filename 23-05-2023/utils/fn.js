@@ -54,13 +54,15 @@ export const GET = async (endpoint = "") => {
     return data;
 };
 
-export const POST = async (endpoint, body) => {
+export const POST = async (endpoint, bodyInput) => {
     const res = await fetch(urlBase + endpoint , {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        title: bodyInput
+      })
     });
     const data = await res.json();
     return data;

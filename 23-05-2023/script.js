@@ -2,7 +2,7 @@ import { cE, qS, qSA, urlBase, urlCartsEP, createUserCart, GET, POST } from "./u
 import { usersList } from "./utils/credentials.js";
 
 
-const urlProductAdd = "products/add/";
+const urlProductAdd = "products/add";
 const loginForm = qS('.form_login');
 const userContainer = qS('.div_user_container_no_display');
 const divRoot = qS(".div_login");
@@ -39,5 +39,5 @@ loginForm.addEventListener('submit', (e) => {
 
 buttonAddProduct.addEventListener('click', () => {
     console.log("clickato");
-    POST(urlProductAdd, {title: "ciao aggiunto"});
+    POST(urlProductAdd, "ciao aggiunto")
 })
