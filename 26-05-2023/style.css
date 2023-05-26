@@ -107,3 +107,8 @@
     font-size: xx-large;
     color: white;
 }
+.span_status_alert {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}

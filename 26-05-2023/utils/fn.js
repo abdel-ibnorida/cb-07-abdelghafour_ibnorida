@@ -25,31 +25,36 @@ export const CreateTodoUserInterface = (data, loginData, divFather) => {
         addTodoButton.className = "button_add_todo";
 
         userP.textContent = "Username: " + loginData.username;
-        data.forEach(element => {
+        data.filter(element => element.userId == loginData.id).forEach(element => {
             const singleTodoCartContainer = cE('div');
             const deleteTodoButton = cE('button');
             const changeStatusButton = cE('button');
+            const statusSpan = cE('span');
             const todoCard = cE('div');
 
             singleTodoCartContainer.className = "single_todo_container";
             todoCard.className = "todo_card";
+            statusSpan.className = "span_status_alert"
 
             todoCard.setAttribute("id", element.id);
             todoCard.setAttribute("completed", element.completed);
             todoCard.textContent = element.todo;
-            if (todoCard.element == false)
-            {
+            if (element.completed == false)
+            {   
+                statusSpan.textContent = "Status: Not completed"
                 todoCard.className = "todo_card_notcompleted";
+            }
+            else{
+                statusSpan.textContent = "Status: Completed"
             }
             
             deleteTodoButton.textContent = "Delete";
             changeStatusButton.textContent = "Change Status";
 
-            singleTodoCartContainer.append(todoCard, deleteTodoButton,changeStatusButton);
+            singleTodoCartContainer.append(todoCard, deleteTodoButton, statusSpan,changeStatusButton);
             userTodoContainer.append(singleTodoCartContainer);
 
             deleteTodoButton.addEventListener('click', (e) => {
-                console.log(todoCard.id);
                 data.splice(data.findIndex((element) => element.id == todoCard.id), 1);
                 localStorage.setItem("todoList", JSON.stringify(data));
                 divFather.textContent = "";
@@ -57,9 +62,11 @@ export const CreateTodoUserInterface = (data, loginData, divFather) => {
             });
 
             changeStatusButton.addEventListener('click', (e) => {
-                console.log(todoCard);
-                console.log(todoCard.completed);
-                console.log(todoCard.id);
+                element.completed = !element.completed;
+                
+                localStorage.setItem("todoList", JSON.stringify(data));
+                divFather.textContent = "";
+                CreateTodoUserInterface(JSON.parse(localStorage.getItem("todoList")), loginData, divFather);
             })
         });
         
