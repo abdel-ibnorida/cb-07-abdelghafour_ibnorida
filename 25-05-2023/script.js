@@ -1,6 +1,6 @@
-import { GET, POST } from "/utils/http.js";
+import { GET, POST } from "./utils/http.js";
 import { cE, qS, qSA, CreateTodoUserInterface } from "./utils/fn.js";
-import { usersList } from "/utils/credentials.js";
+import { usersList } from "./utils/credentials.js";
 
 const urlBase = 'https://dummyjson.com/todos';
 const endpointByUser = '/user/';

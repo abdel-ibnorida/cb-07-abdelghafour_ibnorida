@@ -1,5 +1,5 @@
 import { cE, qS, qSA, CreateTodoUserInterface } from "./utils/fn.js";
-import { usersList } from "/utils/credentials.js";
+import { usersList } from "./utils/credentials.js";
 
 const loginForm = qS('.form_login');
 const divForm = qS('.div_login');
