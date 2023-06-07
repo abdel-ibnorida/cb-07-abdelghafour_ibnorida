@@ -2,7 +2,7 @@ import { cE, fileterNameEmailUser, qS, RenderContacts, RenderFavouriteContacts, 
 import { GET } from "./utils/http.js";
 
 const divMain = qS('.div_main');
-const divFavourite = qS('.div_favourite');
+const divFavourite = qS('.div_favourite_empty');
 const btnSearch = qS('.search_button');
 const formSearch = qS('.form_search');
 const searchbar = qS('.search');
