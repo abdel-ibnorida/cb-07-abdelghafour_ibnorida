@@ -4,11 +4,11 @@
     width: 100%;
   
     &.error {
-      .input {
+      input {
         border: 1px solid red;
       }
   
-      .label {
+      span {
         color: red;
       }
     }

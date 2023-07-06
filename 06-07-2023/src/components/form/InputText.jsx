@@ -10,7 +10,6 @@ const InputText = (props) => {
         error
     } = props || null;
     return (
-
         <form className={`${styles.inputForm} ${error ? styles.error : ""}`} onSubmit={(e) => {e.preventDefault()}} >
             <label htmlFor={id}>
                 {label && <span>{label}</span>}
