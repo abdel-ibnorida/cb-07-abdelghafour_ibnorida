@@ -1,0 +1,21 @@
+.navbar {
+    height: 80px;
+    border: 3px solid $primary;
+    background-color: gray;
+    .navbar_item {
+        background-color: $secondary;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        
+        li {
+            font-size: larger;
+        }
+    }
+}
+.itemOption{
+    display: block;
+}
+.itemOption_active{
+    display: none;
+}

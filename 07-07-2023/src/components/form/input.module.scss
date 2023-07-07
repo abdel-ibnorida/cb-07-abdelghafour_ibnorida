@@ -1,0 +1,15 @@
+.inputForm {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  
+    &.error {
+      input {
+        border: 1px solid $danger;
+      }
+  
+      span {
+        color: $danger;
+      }
+    }
+  }
